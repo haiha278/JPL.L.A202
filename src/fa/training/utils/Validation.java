@@ -20,6 +20,7 @@ public class Validation {
         if (phone.length() >= 7 && phone.matches("^[0-9]*$")) {
             return true;
         } else {
+            System.out.println("Phone must be number and has at least 7 digit");
             return false;
         }
     }
@@ -28,6 +29,7 @@ public class Validation {
         if (email.matches("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\\\.[A-Za-z0-9-]+)*(\\\\.[A-Za-z]{2,})$")) {
             return true;
         } else {
+            System.out.println("Email not available");
             return false;
         }
     }
