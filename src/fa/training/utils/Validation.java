@@ -1,8 +1,12 @@
 package fa.training.utils;
 
+import fa.training.entities.Department;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Validation {
     public boolean checkDateFormat(String date) {
@@ -26,11 +30,16 @@ public class Validation {
     }
 
     public boolean checkEmailFormat(String email) {
-        if (email.matches("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\\\.[A-Za-z0-9-]+)*(\\\\.[A-Za-z]{2,})$")) {
-            return true;
-        } else {
-            System.out.println("Email not available");
-            return false;
+        String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        return email.matches(regex);
+    }
+
+    public Department checkDepartmentExist(String depName, List<Department> departments) {
+        for (Department department : departments) {
+            if (department.getDepartmentName().equalsIgnoreCase(depName)) {
+                return department;
+            }
         }
+        return null;
     }
 }

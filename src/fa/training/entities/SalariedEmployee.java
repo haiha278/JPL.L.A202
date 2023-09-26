@@ -5,6 +5,9 @@ public class SalariedEmployee extends Employee {
     private double grossSales;
     private double basicSalary;
 
+    public SalariedEmployee() {
+    }
+
     public SalariedEmployee(double commisstionRate, double grossSales, double basicSalary) {
         this.commisstionRate = commisstionRate;
         this.grossSales = grossSales;
